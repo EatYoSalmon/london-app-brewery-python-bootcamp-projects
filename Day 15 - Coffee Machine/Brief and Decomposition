@@ -1,0 +1,50 @@
+# Coffee Machine
+by Grich | version 1.0
+
+### Objectives:
+1. Print report
+2. Check resources sufficient?
+3. Process coins; ask how many of each type of coin (penny, nickle, dime, quarter)
+4. Check transaction successful?; if not return coins, else, proceed to make coffee.
+5. Make coffee; deduct resources and add payment to balance.
+
+### Algorithm:
+1. Prompt menus
+2. If one of menu;
+    1. Check if enough resources for menu
+        1. If not enough resources; print insufficient resource, and prompt;
+        2. Proceeds if enough;
+    2. Process coins;
+    3. Check if transaction is successful (paid full price)
+        1. If successful; deduct resources, add machine balance, print coffee served and change, and prompt;
+        2. If unsuccessful; refund money, print insufficient payment, and prompt;
+3. If report, print resources and prompt;
+4. If off, end program.
+
+### Functions
+- prompt()
+- is_suf()
+- print_res()
+- coins()
+
+### Other resources
+
+##### Phrases:
+- "    What would you like? (espresso/latte/cappuccino): "
+- "Sorry that's not enough money. Money refunded."
+- "Here is $2.45 dollars in change"
+- "Here is your latte. Enjoy!"
+
+##### Report Sample:
+Water: 100ml
+Milk: 50ml
+Coffee: 76g
+Money: $2.5
+ 
+##### Coin Values:
+pen = 0.01
+nik = 0.05
+dim = 0.10
+qtr = 0.25
+
+#####
