@@ -1,3 +1,4 @@
+from re import I
 from turtle import Turtle
 
 
@@ -43,5 +44,24 @@ class Player(Turtle):
         is_passed = True
 
         return is_passed
+
+    def got_hit(self, cars):
+        """Detects if player has been hit by a car;
+        Returns True if player got hit, False if not."""
+
+        collision = False
+
+        for i, car in enumerate(cars):
+
+            # pos1 = car[0].pos()
+            # pos2 = car[1].pos()
+            # print(f"Detecting if hit with car#{i}: {pos1} & {pos2}.")
+
+            if self.distance(car[0]) < 12 or self.distance(car[1]) < 12:
+                    
+                collision = True
+                return collision
+                
+
 
 

@@ -10,9 +10,10 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-# Initializes Player and CarManager objects.
+# Initializes Player, CarManager, and Scoreboard objects.
 player = Player()
 manager = CarManager()
+board = Scoreboard()
 
 # Sets up the main game loop.
 is_game_over = False
@@ -25,17 +26,19 @@ while is_game_over is False:
 
     # Main looping section; all the background processes of the game.
     screen.onkey(player.cross, "Up")
-    manager.manage_v1()
+    manager.manage_v2()
 
     # Triggers if player passes current level.
     if player.go_back_if_pass():
 
-        manager.add_level()
-        # scoreboard.add_level()
-        pass
+        board.add_level()
+        manager.add_speed()
 
-    # if player collide with one of the cars:
-        # is_game_over = True
-        # scoreboard.game_over()
+    # Triggers if player got hit by a car.
+    if player.got_hit(manager.cars):
+
+        is_game_over = True
+        board.game_over()
+                
 
 screen.exitonclick()

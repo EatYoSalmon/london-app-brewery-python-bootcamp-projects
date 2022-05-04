@@ -31,7 +31,7 @@ class CarManager:
         """Generates, moves, deletes, and manages quantity and pace of cars;
         The main orchestrating method of a CarManager object.
         
-        v1: Generation algorithm is randomized probabilistically upon each screen refresh:
+        v1: Generator algorithm is randomized probabilistically upon each screen refresh:
         There's a 10% chance of more cars being added at every refresh;
         Single car generation has 60% drop rate;
         Double has 30% drop rate
@@ -56,12 +56,27 @@ class CarManager:
         self.drive()
         self.auto_del()  
 
+    def manage_v2(self):
+        """Generates, moves, deletes, and manages quantity and pace of cars;
+        The main orchestrating method of a CarManager object.
+        
+        v1: Simpler generator algorithm, randomized probabilistically upon each screen refresh:
+        There's 1 in 6 chance of a new car spawning every refresh."""
+
+        lucky1 = randint(1, 6)
+        if lucky1 == 1:
+
+            self.cars.append(self.new_car())
+        
+        self.drive()
+        self.auto_del()
+
 
     def new_car(self):
         """Generates a car as a list of containing 2 Turtle objects;
         Returns the car as a list"""
 
-        rand_y_spawn = randint(-280, 280)
+        rand_y_spawn = randint(-240, 240)
         rand_color = choice(COLORS)
 
         car_front = Turtle()
@@ -94,10 +109,11 @@ class CarManager:
             if car[0].xcor() < -320:
                 car[0].ht()
                 car[1].ht()
+
                 self.cars.remove(car)
 
-    
-    def add_level(self):
+
+    def add_speed(self):
         """Increases speed_limit of the cars, making the game harder."""
 
         self.speed_limit += MOVE_INCREMENT
