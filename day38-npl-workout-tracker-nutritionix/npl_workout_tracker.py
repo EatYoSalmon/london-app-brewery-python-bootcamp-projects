@@ -13,7 +13,7 @@ AGE = 23
 # Required Constants
 APP_ID = os.environ.get('NUTRINIXID')
 API_KEY = os.environ.get('NUTRINIXAPI')
-SHEETY_ENDPOINT = os.environ.get('SHEETYENDPOINT')
+SHEETY_ENDPOINT = os.environ.get('SHEETYWORKOUTENDPOINT')
 TOKEN = os.environ.get('SHEETYTOKEN')
 
 if (APP_ID is None) or (API_KEY is None):
